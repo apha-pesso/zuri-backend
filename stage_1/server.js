@@ -9,7 +9,7 @@ app.get("/api", (req, res) => {
   const currentDay = new Date().toLocaleDateString("en-US", {
     weekday: "long",
   });
-  const currentUTC = new Date().toISOString();
+  const currentUTC = new Date().toISOString().slice(0, -5) + "Z";
 
   if (!slack_name || !track) {
     return res.status(400).json({ error: "Missing required parameters" });
